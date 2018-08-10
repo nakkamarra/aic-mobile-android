@@ -12,4 +12,5 @@ include ':app',
         ':tours',
         ':exhibitions',
         ':events',
-        ':info'
+        ':info',
+        ':map'

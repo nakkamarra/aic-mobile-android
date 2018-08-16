@@ -18,6 +18,7 @@ import com.jakewharton.rxbinding2.view.clicks
 import edu.artic.analytics.ScreenCategoryName
 import edu.artic.base.utils.isResourceConstrained
 import edu.artic.base.utils.loadBitmap
+import edu.artic.base.utils.loadWithThumbnail
 import edu.artic.db.models.ArticGallery
 import edu.artic.db.models.ArticMapAmenityType
 import edu.artic.db.models.ArticMapAnnotationType
@@ -592,7 +593,7 @@ class MapFragment : BaseViewModelFragment<MapViewModel>() {
     private fun loadObject(articObject: ArticObject, floor: Int) {
         Glide.with(this)
                 .asBitmap()
-                .load(articObject.thumbnailFullPath)
+                .loadWithThumbnail(articObject.thumbnailFullPath, articObject.fullImageFullPath)
                 .into(object : SimpleTarget<Bitmap>() {
                     override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                         if (viewModel.currentZoomLevel === MapZoomLevel.Three && viewModel.currentFloor == floor) {
